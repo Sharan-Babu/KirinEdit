@@ -7,7 +7,7 @@ import ast
 #from code_editor import code_editor
 
 st.set_page_config(page_title="KirinEdit",page_icon="⚡️")
-st.title("KirinEdit⚡️✏️")
+st.title("1KirinEdit⚡️✏️")
 st.caption("An experiment")
 
 explanation_text = """
