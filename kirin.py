@@ -593,7 +593,7 @@ with st.form("edit_form"):
 					replacement_content_list.append(replacement["new_content_w/o_line_nums"])
 
 				# make replacements
-				final_edited_content = "\n".join(replace_lines(content_list, replacement_tuples, replacement_content_list))
+				final_edited_content = "\n".join(replace_lines(content_list, replacement_tuples, replacement_content_list)).replace("\\n","\n")
 				with st.chat_message("ai"):
 					st.write(assistant_response)
 				final_content_editor = st_monaco(value=final_edited_content, height="410px", language="text", theme="vs-dark")
