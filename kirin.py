@@ -471,7 +471,7 @@ def anthropic_call(numbered_content_string, context, command):
 
 	
 	message_content = message.content[0].text
-	print(f"\n\nNLOG:\n{message_content}")
+	#print(f"\n\nNLOG:\n{message_content}")
 	return message_content
 
 
