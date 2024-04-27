@@ -462,7 +462,7 @@ def anthropic_call(numbered_content_string, context, command):
 			            "content": [
 			                {
 			                    "type": "text",
-			                    "text": f"Do not speak about previous examples as new user session begins.\n\nExample 3:\n----------\n<Helpful Context>\n{context}\n</Helpful Context>\n\n<Content>\n{numbered_content_string}\n</Content>\n\nRemember that following:\n1. For deleting or removing, simply set new_content_w/o_line_nums to empty character \"\" after selecting appropriate lines.\n2. When adding/replacing content, new_content should be able to transition smoothly 'without overwriting' existing text.\n3. In new_content_w/o_line_nums, you have to use \\n for new line character. Ex: \"new_content_w/o_line_nums\" : \"<h1>\\n Hi \\n</h1>\"\n\n<User Query>\n{command}\n</User Query>"
+			                    "text": f"Do not speak about previous examples as new user session begins.\n\nExample 3:\n----------\n<Helpful Context>\n{context}\n</Helpful Context>\n\n<Content>\n{numbered_content_string}\n</Content>\n\nRemember that following:\n1. For deleting or removing, simply set new_content_w/o_line_nums to empty character \"\" after selecting appropriate lines.\n2. When adding/replacing content, new_content should be able to transition smoothly 'without overwriting' existing text.\n3. In new_content_w/o_line_nums, you have to use \\n for new line character. Ex: \"new_content_w/o_line_nums\" : \"<h1> \\n Hi \\n </h1>\"\n\n<User Query>\n{command}\n</User Query>"
 			                }
 			            ]
 			        }
@@ -471,7 +471,7 @@ def anthropic_call(numbered_content_string, context, command):
 
 	
 	message_content = message.content[0].text
-	#print(f"\n\nNLOG:\n{message_content}")
+	print(f"\n\nNLOG:\n{message_content}")
 	return message_content
 
 
