@@ -9,6 +9,7 @@ import ast
 st.set_page_config(page_title="KirinEdit",page_icon="⚡️")
 st.title("KirinEdit⚡️✏️")
 st.caption("An experiment")
+st.write("[YouTube Demo](https://www.youtube.com/watch?v=szU2lKXkYEI)")
 
 explanation_text = """
 **KirinEdit** is a Large Language Model (LLM) that can **edit** given 
