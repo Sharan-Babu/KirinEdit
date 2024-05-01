@@ -308,8 +308,8 @@ def anthropic_call(numbered_content_string, context, command):
 
 
 	message = client.messages.create(
-			    model="claude-3-haiku-20240307",
-			    #model="claude-3-sonnet-20240229",
+			    #model="claude-3-haiku-20240307",
+			    model="claude-3-sonnet-20240229",
 			    max_tokens=2000,
 			    temperature=0,
 			    system=st.secrets["s1"],
