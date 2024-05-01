@@ -311,7 +311,7 @@ def anthropic_call(numbered_content_string, context, command):
 			    model="claude-3-haiku-20240307",
 			    #model="claude-3-sonnet-20240229",
 			    max_tokens=2000,
-			    temperature=0,
+			    temperature=0.1,
 			    system=st.secrets["s1"],
 			    messages=[
 			        {
