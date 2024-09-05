@@ -9,7 +9,6 @@ import ast
 st.set_page_config(page_title="KirinEdit",page_icon="⚡️")
 st.title("KirinEdit⚡️✏️")
 st.caption("An experiment")
-st.write("[YouTube Demo](https://www.youtube.com/watch?v=szU2lKXkYEI)")
 
 explanation_text = """
 **KirinEdit** is a Large Language Model (LLM) that can **edit** given 
@@ -308,9 +307,9 @@ def anthropic_call(numbered_content_string, context, command):
 
 
 	message = client.messages.create(
-			    model="claude-3-haiku-20240307",
-			    #model="claude-3-sonnet-20240229",
-			    max_tokens=2000,
+			    #model="claude-3-haiku-20240307",
+			    model="claude-3-5-sonnet-20240620",
+			    max_tokens=6000,
 			    temperature=0,
 			    system=st.secrets["s1"],
 			    messages=[
@@ -463,7 +462,7 @@ def anthropic_call(numbered_content_string, context, command):
 			            "content": [
 			                {
 			                    "type": "text",
-			                    "text": f"Do not speak about previous examples as new user session begins.\n\nExample 3:\n----------\n<Helpful Context>\n{context}\n</Helpful Context>\n\n<Content>\n{numbered_content_string}\n</Content>\n\nRemember that following:\n1. For deleting or removing, simply set new_content_w/o_line_nums to empty character \"\" after selecting appropriate lines.\n2. When adding/replacing content, new_content should be able to transition smoothly 'without overwriting'.\n3. In new_content_w/o_line_nums, you have to use \\n for new line character. Ex: \"new_content_w/o_line_nums\" : \"First item \\n Second item \\n Third\"\n\n<User Query>\n{command}\n</User Query>"
+			                    "text": f"Do not speak about previous examples as new user session begins.\n\nExample 3:\n----------\n<Helpful Context>\n{context}\n</Helpful Context>\n\n<Content>\n{numbered_content_string}\n</Content>\n\nRemember that following:\n1. For deleting or removing, simply set new_content_w/o_line_nums to empty character \"\" after selecting appropriate lines.\n2. When adding/replacing content, new_content should be able to transition smoothly 'without overwriting' existing text.\n3. Do not escape new line characters.\n\n<User Query>\n{command}\n</User Query>"
 			                }
 			            ]
 			        }
@@ -472,7 +471,7 @@ def anthropic_call(numbered_content_string, context, command):
 
 	
 	message_content = message.content[0].text
-	#print(f"\n\nNLOG:\n{message_content}")
+	print(f"\n\nNLOG:\n{message_content}")
 	return message_content
 
 
@@ -594,7 +593,7 @@ with st.form("edit_form"):
 					replacement_content_list.append(replacement["new_content_w/o_line_nums"])
 
 				# make replacements
-				final_edited_content = "\n".join(replace_lines(content_list, replacement_tuples, replacement_content_list)).replace("\\n","\n")
+				final_edited_content = "\n".join(replace_lines(content_list, replacement_tuples, replacement_content_list))
 				with st.chat_message("ai"):
 					st.write(assistant_response)
 				final_content_editor = st_monaco(value=final_edited_content, height="410px", language="text", theme="vs-dark")
