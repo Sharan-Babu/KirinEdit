@@ -11,7 +11,7 @@ st.title("KirinEdit⚡️✏️")
 st.caption("An experiment")
 
 explanation_text = """
-**KirinEdit** is a Large Language Model (LLM) that can **edit** given 
+**KirinEdit** is a Large Language Model (LLM) technique that can **edit** given 
 'text input' by *identifying and replacing text sequences in it*, 
 without rewriting the entire text. 
 
