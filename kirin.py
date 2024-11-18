@@ -501,6 +501,7 @@ def replace_lines(initial_content_list, tuples, new_content):
 
 # prompt injection check
 def pic(json_obj):
+	return False ## temp
 	if "new_content_w/o_line_nums" in json_obj["response"]:
 		return True
 
