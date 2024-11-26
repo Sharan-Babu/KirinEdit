@@ -35,7 +35,7 @@ it up with GPT-4 or Claude Opus. This way, you get the `"new content"`
 from the larger model (better reasoning, larger context window and other features) 
 while the rewriting itself is being done by the cheap KirinEdit Model.
 
-This demo uses Claude-3-Haiku; input limits capped. Using GPT-4
+This demo uses Claude-3.5-Sonnet; input limits capped. Using GPT-4
 or Claude Sonnet leads to even higher accuracy thanks to those
 models being able to better articulate changes to make and form corresponding
 queries. If that implementation, or API access of interest to you,
